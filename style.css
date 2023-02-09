@@ -177,7 +177,7 @@ footer {
 
   .header-wrapper{
     width: 37.7rem;
-    height: 100vh;
+    height: 100%;
 
     background-color: var(--bg-header);
   }
@@ -191,12 +191,29 @@ footer {
 
     color: #FFFFFF;
   }
+
+  .cards .card span {
+    display: none;
+  }
+  
 }
 
 @media (min-width: 900px){
+  .page{
+    display: grid;
+    grid-template-areas: "header main"
+    "header footer";
+    
+  }
+
+  .header-wrapper{
+    grid-area: header;
+    height: 100%;
+  }
  
-main {
+  main {
   margin:0;
+  grid-area: main;
 }
 
 main .cards {
@@ -205,9 +222,12 @@ main .cards {
   "A B E"
   "D B F"
   "D C F";
+  grid-template-rows: 22% 14% 25%;
   gap: 3.2rem;
- 
+
+  padding-top: 5rem;
 }
+
 
 main .cards .card:nth-child(1){
   grid-area: A;
@@ -251,7 +271,9 @@ footer{
   display:block;
   text-align: center;
 
-  margin-top: 5rem;
+  grid-area: footer;
+
+  margin-bottom: 3rem;
 
   font-family:'Open Sans', sans-serif;
   font-size: 1.4rem;
